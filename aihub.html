@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hub - Free AI Tools Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="aihub.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-brand">AI Hub</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#tools" class="nav-link active">AI Tools</a>
+            <a href="#categories" class="nav-link">Categories</a>
+            <a href="#featured" class="nav-link">Featured</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Unlock the Power of AI</h1>
+            <p>Access hundreds of free AI tools for all your creative and professional needs</p>
+            <div class="search-container">
+                <input type="text" placeholder="Search AI tools...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- AI Tools Section -->
+    <section id="tools" class="section">
+        <h2 class="section-title">Popular AI Tools</h2>
+
+        <!-- Categories Filter -->
+        <div class="categories">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Text Generation</button>
+            <button class="category-btn">Image Creation</button>
+            <button class="category-btn">Video Editing</button>
+            <button class="category-btn">Code Assistance</button>
+            <button class="category-btn">Productivity</button>
+        </div>
+
+        <!-- Tools Grid -->
+        <div class="tools-container">
+            <!-- Tool 1 -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="https://images.unsplash.com/photo-1655720828013-97bda5d0b9e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="ChatGPT">
+                    <span class="tool-badge">Text Generation</span>
+                    <a href="https://chat.openai.com" target="_blank" class="access-btn">
+                        <i class="fas fa-external-link-alt"></i> Access Tool
+                    </a>
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title"><i class="fas fa-comment-dots" style="color: var(--primary-color);"></i>
+                        ChatGPT</h3>
+                    <span class="tool-category">Conversational AI</span>
+                    <p class="tool-description">Advanced AI chatbot that can engage in human-like conversations, answer
+                        questions, and assist with various tasks.</p>
+                    <div class="tool-stats">
+                        <span>Free tier available</span>
+                        <span class="tool-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            4.7
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 2 -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="DALL-E">
+                    <span class="tool-badge">Image Creation</span>
+                    <a href="https://openai.com/dall-e" target="_blank" class="access-btn">
+                        <i class="fas fa-external-link-alt"></i> Access Tool
+                    </a>
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title"><i class="fas fa-image" style="color: var(--primary-color);"></i> DALL-E</h3>
+                    <span class="tool-category">AI Image Generator</span>
+                    <p class="tool-description">Create realistic images and art from text descriptions using advanced AI
+                        technology.</p>
+                    <div class="tool-stats">
+                        <span>Free credits available</span>
+                        <span class="tool-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            4.2
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 3 -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+                        alt="GitHub Copilot">
+                    <span class="tool-badge">Code Assistance</span>
+                    <a href="https://github.com/features/copilot" target="_blank" class="access-btn">
+                        <i class="fas fa-external-link-alt"></i> Access Tool
+                    </a>
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title"><i class="fas fa-code" style="color: var(--primary-color);"></i> GitHub
+                        Copilot</h3>
+                    <span class="tool-category">AI Pair Programmer</span>
+                    <p class="tool-description">Your AI pair programmer that suggests code and entire functions in
+                        real-time right from your editor.</p>
+                    <div class="tool-stats">
+                        <span>Free for students</span>
+                        <span class="tool-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            4.9
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 4 -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Notion AI">
+                    <span class="tool-badge">Productivity</span>
+                    <a href="https://www.notion.so/product/ai" target="_blank" class="access-btn">
+                        <i class="fas fa-external-link-alt"></i> Access Tool
+                    </a>
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title"><i class="fas fa-tasks" style="color: var(--primary-color);"></i> Notion AI
+                    </h3>
+                    <span class="tool-category">Work Assistant</span>
+                    <p class="tool-description">AI-powered workspace that helps you write better, summarize content,
+                        create action items, and more.</p>
+                    <div class="tool-stats">
+                        <span>Free plan available</span>
+                        <span class="tool-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            4.5
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 5 -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Runway ML">
+                    <span class="tool-badge">Video Editing</span>
+                    <a href="https://runwayml.com" target="_blank" class="access-btn">
+                        <i class="fas fa-external-link-alt"></i> Access Tool
+                    </a>
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title"><i class="fas fa-film" style="color: var(--primary-color);"></i> Runway ML
+                    </h3>
+                    <span class="tool-category">Creative Suite</span>
+                    <p class="tool-description">Advanced toolkit for content creation with AI-powered video editing,
+                        image generation, and more.</p>
+                    <div class="tool-stats">
+                        <span>Free tier available</span>
+                        <span class="tool-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            4.1
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 6 -->
+            <div class="tool-card">
+                <div class="tool-image">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1365&q=80"
+                        alt="Midjourney">
+                    <span class="tool-badge">Image Creation</span>
+                    <a href="https://www.midjourney.com" target="_blank" class="access-btn">
+                        <i class="fas fa-external-link-alt"></i> Access Tool
+                    </a>
+                </div>
+                <div class="tool-content">
+                    <h3 class="tool-title"><i class="fas fa-paint-brush" style="color: var(--primary-color);"></i>
+                        Midjourney</h3>
+                    <span class="tool-category">AI Art Generator</span>
+                    <p class="tool-description">Create stunning digital art with simple text prompts using this powerful
+                        AI image generator.</p>
+                    <div class="tool-stats">
+                        <span>Free trial available</span>
+                        <span class="tool-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            4.8
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured" class="featured-section">
+        <h2>Featured AI Tool Categories</h2>
+        <div class="featured-tools">
+            <div class="featured-tool">
+                <i class="fas fa-language"></i>
+                <h3>Language Tools</h3>
+                <p>Translation, writing assistants, and text generation</p>
+            </div>
+            <div class="featured-tool">
+                <i class="fas fa-image"></i>
+                <h3>Visual Creation</h3>
+                <p>Image generation, editing, and enhancement</p>
+            </div>
+            <div class="featured-tool">
+                <i class="fas fa-video"></i>
+                <h3>Video Tools</h3>
+                <p>Editing, effects, and automated production</p>
+            </div>
+            <div class="featured-tool">
+                <i class="fas fa-code"></i>
+                <h3>Developer Tools</h3>
+                <p>Code generation, debugging, and optimization</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title">How To Use AI Hub</h2>
+        <p>Discover, access, and utilize the best free AI tools in three simple steps</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Browse Tools</h3>
+                <p>Explore our curated collection of AI tools across various categories</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Select Your Tool</h3>
+                <p>Choose the AI tool that best fits your needs and requirements</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Start Creating</h3>
+                <p>Access the tool directly and begin your AI-powered journey</p>
+            </div>
+        </div>
+    </section>
+        <!-- Footer Section -->
+        <footer class="aihub-footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>AI Hub</h3>
+                    <p>Your gateway to free AI tools</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#tools">All Tools</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#featured">Featured</a></li>
+                            <li><a href="#">New Additions</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Report Issue</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AI Hub. All rights reserved.</p>
+            </div>
+        </footer>
+        <script src="aihub.js"></script>
+</body>
+
+</html>

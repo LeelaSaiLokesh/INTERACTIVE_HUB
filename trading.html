@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:white;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            height: 50px;
+            width: 100%;
+            border: 2px solid #333;
+        }
+        .size{
+            margin-top: 15px;
+            margin-left: 2px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 70%;
+            position: absolute;
+            top: 6px;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover{
+            background-color:#333;
+            /* padding: 5px; */
+            color: chartreuse;
+        }
+        #market{
+            height: 100%;
+            width: 100%;
+            text-align: center;
+           
+        }
+        .center>img{
+           height: 90%;
+           width: 100%;
+           
+        }
+        table {
+            width: 50%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background: #555;
+            color: white;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        main {
+            width: 100%;
+            font-size:x-large;
+            color: #333;
+            padding-top: 1px;
+            border-radius: 3px;
+            margin-top: -10px;
+        }
+        #gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .card>img {
+            height: 190px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .card>img:hover{
+            transform: scale(1.1);
+        }
+        .card>p {
+            font-size: 16px;
+            color: #333;
+        }
+        #trade{
+            padding: 20px;
+            text-align: center;
+        }
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .game-card:hover .game-image img {
+            transform: scale(1.1);
+        }
+
+        .game-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .game-content {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-category {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .game-description {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .game-rating i {
+            color: #fbbf24;
+        }
+         /* Game Modal */
+         .game-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .game-modal-content {
+            background-color: white;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalOpen 0.3s ease;
+        }
+
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        .game-modal-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }.game-modal-image {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .game-modal-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .game-modal-play {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .game-modal-play-btn {
+            background-color: var(--primary-color);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .game-modal-play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .game-modal-play-btn i {
+            font-size: 2rem;
+        }
+
+        .game-modal-details h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .game-modal-category {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .game-modal-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-modal-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .game-modal-stat {
+            background-color: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .game-modal-description {
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .game-modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer {
+             background-color: #333;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+            .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.footer-social a{
+    text-decoration: none;
+    font-size: larger;
+}
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    height: 18px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="size">Trading Hub</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="https://www.digitalsilk.com/digital-marketing/" target="_self">Market</a></li>
+                <li><a href="tradingview.html">Trade</a></li>
+                <li><a href="https://www.sharekhan.com/">Shares</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="market">
+        <div class="center">
+            <img src="maxres.jpg">
+        </div>
+         <h2>Market Prices</h2>
+        <table>
+            <tr>
+                <th>country</th>
+                <th>Asset</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>India</td>
+                <td>Bitcoin</td>
+                <td id="btc-price">$40,000</td>
+                <td><button onclick="trade('Bitcoin')">Trade</button></td>
+            </tr>
+            <tr>
+                <td>Australia</td>
+                <td>Ethereum</td>
+                <td id="eth-price">$2,500</td>
+                <td><button onclick="trade('Ethereum')">Trade</button></td>
+            </tr>
+            <tr>
+                <td>Russia</td>
+                <td>crypto</td>
+                <td id="crt-price">$25,000</td>
+                <td><button onclick="trade('crypto')">Trade</button></td>
+            </tr>
+        </table>
+    </section>
+    <section id="trade">
+        <h2>Trade Now</h2>
+        <p id="trade-info">Select an asset to trade.</p>
+    </section>
+    <main>
+        <h2 class="size">Trading Insights</h2>
+    </main>
+    <!-- <section id="gallery">
+        <div class="card">
+            <img src="download.jpg" alt="Stock Market Chart">
+            <p>Stock market trends and analysis.</p>
+        </div>
+        <div class="card">
+            <img src="OIP.jpg" alt="Forex Trading">
+            <p>Forex trading strategies and tips.</p>
+        </div>
+        <div class="card">
+            <img src="bitcoin1.jpg" alt="Cryptocurrency">
+            <p>Cryptocurrency market movements.</p>
+        </div>
+    </section>  -->
+    <!-- Games Grid -->
+    <div class="games-container">
+        <!-- Game 1 -->
+        <div class="game-card" data-game="cyberpunk">
+          <div class="game-image">
+            <img
+              src="download.jpg" alt="Cyberpunk 2077">
+            <span class="game-badge">GICS</span>
+            <div class="play-btn">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Stock market</h3>
+            <span class="game-category">Open World GICS</span>
+            <p class="game-description">The stock market as a whole is an exchange mechanism that helps investors buy and sell shares in publicly traded companies. </p>
+            <div class="game-stats">
+              <span>24+ hours Trading</span>
+              <span class="game-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                4.0
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 2 -->
+        <div class="game-card" data-game="fifa">
+          <div class="game-image">
+            <img
+              src="OIP.jpg" alt="FIFA 23">
+            <span class="game-badge">FT</span>
+            <div class="play-btn">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Forex Trading</h3>
+            <span class="game-category">Open world FT</span>
+            <p class="game-description">Forex trading involves simultaneously buying one currency while selling another in hopes of profiting 
+                from changes in their relative values</p>
+            <div class="game-stats">
+              <span>Online trading</span>
+              <span class="game-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                4.5
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 3 -->
+        <div class="game-card" data-game="zelda">
+          <div class="game-image">
+            <img
+              src="bitcoin1.jpg" alt="Zelda: Tears of the Kingdom">
+            <span class="game-badge">Adventure</span>
+            <div class="play-btn">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Cryptocurrency</h3>
+            <span class="game-category">Open world CC</span>
+            <p class="game-description">A cryptocurrency is a digital or virtual currency secured by cryptography, 
+                which makes it nearly impossible to counterfeit or double-spend. </p>
+            <div class="game-stats">
+              <span>50+ hours trading </span>
+              <span class="game-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                5.0
+              </span>
+            </div>
+          </div>
+        </div>
+    </div>
+     <!-- Game Modal -->
+     <div class="game-modal" id="gameModal">
+        <div class="game-modal-content">
+          <span class="close-modal">&times;</span>
+          <div class="game-modal-container" id="modalContent">
+            <!-- Content will be inserted here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">Trading Hub</div>
+                <p>trading involves buying and selling securities within the same day to profit from short-term price movements. </p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="trading/trading.html" class="footer-link">Games Hub</a>
+                    <a href="social/social.html" class="footer-link">Social Hub</a>
+                    <a href="AI hub/aihub.html" class="footer-link">AI Tools</a>
+                    <a href="digital library/library.html" class="footer-link">Digital Library</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i>Twitter</a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i>  LinkedIn</a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i>  Discord</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2025 TradingHub All rights reserved.</p>
+        </div>
+    </footer>     
+    <script>
+        function trade(asset) {
+            document.getElementById('trade-info').innerText = `You have selected to trade ${asset}.`;
+        }
+
+        function updatePrices() {
+            const btcPrice = (40000 + Math.random() * 2000 - 1000).toFixed(2);
+            const ethPrice = (2500 + Math.random() * 100 - 50).toFixed(2);
+            const crtPrice = (25000 + Math.random() * 1000 - 500).toFixed(2);
+            document.getElementById('btc-price').innerText = `$${btcPrice}`;
+            document.getElementById('eth-price').innerText = `$${ethPrice}`;
+            document.getElementById('crt-price').innerText = `$${crtPrice}`;
+        }
+
+        setInterval(updatePrices, 5000);
+        // Game data
+        const games = {
+            cyberpunk: {
+                title: "Cyberpunk 2077",
+                image: "https://images.unsplash.com/photo-1635776062360-af423602aff3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80",
+                category: "RPG • Open World",
+                rating: 4.0,
+                players: "Single Player",
+                duration: "80+ hours",
+                difficulty: "Medium",
+                description: "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character's cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.",
+                playLink: "https://www.cyberpunk.net"
+            },
+            fifa: {
+                title: "FIFA 23",
+                image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "Sports • Simulation",
+                rating: 4.5,
+                players: "1-4 Players (Online 22)",
+                duration: "Unlimited",
+                difficulty: "Easy to Hard",
+                description: "FIFA 23 brings even more of the action and realism of football to the pitch with HyperMotion2 Technology, enhanced physics, and both men's and women's World Cup tournaments. Experience the most true-to-life football game with over 19,000 players, 700+ teams, 100+ stadiums and 30+ leagues.",
+                playLink: "https://www.ea.com/games/fifa/fifa-23"
+            },
+            zelda: {
+                title: "Zelda: Tears of the Kingdom",
+                image: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "Adventure • Action",
+                rating: 5.0,
+                players: "Single Player",
+                duration: "50+ hours",
+                difficulty: "Medium",
+                description: "The Legend of Zelda: Tears of the Kingdom is the sequel to the critically acclaimed Breath of the Wild. Journey through the vast landscapes of Hyrule and the mysterious floating islands in the sky. With new abilities and expanded exploration, discover what caused the kingdom to fall into ruin and uncover the truth behind the legendary kingdom.",
+                playLink: "https://www.zelda.com/tears-of-the-kingdom/"
+            },
+            minecraft: {
+                title: "Minecraft",
+                image: "https://cdn.wallpapersafari.com/8/48/wQlHz1.jpeg",
+                category: "Sandbox • Creative",
+                rating: 5.0,
+                players: "1-8 Players (Online 100)",
+                duration: "Infinite",
+                difficulty: "Varies",
+                description: "Minecraft is a game about placing blocks and going on adventures. Explore randomly generated worlds and build amazing things from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep in survival mode, crafting weapons and armor to fend off dangerous mobs.",
+                playLink: "https://www.minecraft.net"
+            },
+            cod: {
+                title: "Call of Duty: Modern Warfare II",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "FPS • Action",
+                rating: 4.2,
+                players: "1-4 Players (Online 150)",
+                duration: "8-10 hours (Campaign)",
+                difficulty: "Medium to Hard",
+                description: "Call of Duty: Modern Warfare II drops players into an unprecedented global conflict featuring the return of the iconic Operators of Task Force 141. Experience state-of-the-art gameplay with advanced AI, new gunsmith system, and a variety of multiplayer modes including the all-new DMZ extraction mode.",
+                playLink: "https://www.callofduty.com/modernwarfare2"
+            },
+            amongus: {
+                title: "Among Us",
+                image: "https://images.unsplash.com/photo-1607853202273-797f1c22a38e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+                category: "Party • Strategy",
+                rating: 4.7,
+                players: "4-15 Players",
+                duration: "5-15 minutes per game",
+                difficulty: "Easy",
+                description: "Among Us is a multiplayer game where crewmates work together to complete tasks on a spaceship while impostors try to sabotage their efforts and eliminate them. Use discussion and voting to identify the impostors before it's too late! With customizable game settings and multiple maps, each game is a unique social experience.",
+                playLink: "https://www.innersloth.com/games/among-us/"
+            }
+        };
+
+        // DOM Elements
+        const gameCards = document.querySelectorAll('.game-card');
+        const gameModal = document.getElementById('gameModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.querySelector('.close-modal');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+
+        // Open game modal with details
+        function openGameModal(gameId) {
+            const game = games[gameId];
+            
+            modalContent.innerHTML = `
+                <div class="game-modal-image">
+                    <img src="${game.image}" alt="${game.title}">
+                    <div class="game-modal-play">
+                        <a href="${game.playLink}" target="_blank" class="game-modal-play-btn">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="game-modal-details">
+                    <h2>${game.title}</h2>
+                    <span class="game-modal-category">${game.category}</span>
+                    <div class="game-modal-rating">
+                        <div class="stars">
+                            ${renderStars(game.rating)}
+                        </div>
+                        <span>${game.rating}/5</span>
+                    </div>
+                    <div class="game-modal-stats">
+                        <span class="game-modal-stat">${game.players}</span>
+                        <span class="game-modal-stat">${game.duration}</span>
+                        <span class="game-modal-stat">${game.difficulty}</span>
+                    </div>
+                    <p class="game-modal-description">${game.description}</p>
+                    <div class="game-modal-actions">
+                        <a href="${game.playLink}" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-play"></i> Play Now
+                        </a>
+                        <button class="btn btn-outline" id="addToFavorites">
+                            <i class="far fa-heart"></i> Add to Favorites
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            gameModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Render star ratings
+        function renderStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // Close modal
+        function closeGameModal() {
+            gameModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Event listeners
+        gameCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const gameId = this.getAttribute('data-game');
+                openGameModal(gameId);
+            });
+        });
+
+        closeModal.addEventListener('click', closeGameModal);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === gameModal) {
+                closeGameModal();
+            }
+        });
+
+        // Category filter functionality
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.textContent.trim();
+                const gameCards = document.querySelectorAll('.game-card');
+                
+                if (category === 'All') {
+                    gameCards.forEach(card => card.style.display = 'block');
+                } else {
+                    gameCards.forEach(card => {
+                        const cardCategory = card.querySelector('.game-badge').textContent.trim();
+                        card.style.display = cardCategory === category ? 'block' : 'none';
+                    });
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchBtn = document.querySelector('.search-btn');
+        
+        searchBtn.addEventListener('click', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            gameCards.forEach(card => {
+                const title = card.querySelector('.game-title').textContent.toLowerCase();
+                const description = card.querySelector('.game-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Allow search on Enter key
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>

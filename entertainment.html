@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="entertainment.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <i class="fas fa-play-circle"></i>
+            EntertainmentHub
+        </div>
+        <div class="nav-links">
+            <a href="#movies" class="nav-link">Movies</a>
+            <a href="#games" class="nav-link">Games</a>
+            <a href="#music" class="nav-link">Music</a>
+            <a href="#sports" class="nav-link">Sports</a>
+            <a href="#live" class="nav-link">Live TV</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Your Entertainment Universe</h1>
+            <p>Discover endless entertainment possibilities</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for movies, games, music...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div class="floating-elements">
+            <div class="float-item" data-speed="2"><i class="fas fa-film"></i></div>
+            <div class="float-item" data-speed="1.5"><i class="fas fa-gamepad"></i></div>
+            <div class="float-item" data-speed="3"><i class="fas fa-music"></i></div>
+            <div class="float-item" data-speed="2.5"><i class="fas fa-tv"></i></div>
+        </div>
+    </header>
+
+    <!-- Movies Section -->
+    <section id="movies" class="section">
+        <h2 class="section-title">Trending Movies</h2>
+        <div class="movie-carousel">
+            <div class="movie-card">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80"
+                    alt="Movie 1">
+                <div class="movie-info">
+                    <h3>Action Movie</h3>
+                    <p>2023 • Action, Adventure</p>
+                    <a href="https://www.5movierulz.diet/category/telugu-movies-2025" target="_blank"><button class="play-btn"><i class="fas fa-play"></i> Watch Now</button></a>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80"
+                    alt="Movie 2">
+                <div class="movie-info">
+                    <h3>Drama Series</h3>
+                    <p>2023 • Drama, Thriller</p>
+                    <a href="https://www.moviezwap.zone/"><button class="play-btn"><i class="fas fa-play"></i> Watch Now</button></a>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?auto=format&fit=crop&q=80"
+                    alt="Movie 3">
+                <div class="movie-info">
+                    <h3>Comedy Special</h3>
+                    <p>2023 • Comedy</p>
+                    <a href="https://www.yidio.com/movies/comedy" target="_blank"><button class="play-btn"><i class="fas fa-play"></i> Watch Now</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="section">
+        <h2 class="section-title">Popular Games</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-cover">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
+                        alt="Game 1">
+                    <div class="game-overlay">
+                        <h3>Epic Adventure</h3>
+                        <p>Action RPG</p>
+                        <a href="../games/games.html"><button class="play-btn">Play Now</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-cover">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80"
+                        alt="Game 2">
+                    <div class="game-overlay">
+                        <h3>Racing Elite</h3>
+                        <p>Racing Simulator</p>
+                        <a href="../games/games.html"><button class="play-btn">Play Now</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-cover">
+                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80"
+                        alt="Game 3">
+                    <div class="game-overlay">
+                        <h3>Space Wars</h3>
+                        <p>Sci-fi Strategy</p>
+                        <a href="../games/games.html"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="section">
+        <h2 class="section-title">Top Music</h2>
+        <div class="music-player">
+            <div class="now-playing">
+                <div class="album-art">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80"
+                        alt="Album art">
+                    <div class="player-controls">
+                        <button><i class="fas fa-backward"></i></button>
+                        <button class="play"><i class="fas fa-play"></i></button>
+                        <button><i class="fas fa-forward"></i></button>
+                    </div>
+                </div>
+                <div class="track-info">
+                    <h3>Summer Vibes</h3>
+                    <p>Electronic • Dance</p>
+                </div>
+            </div>
+            <div class="playlist">
+                <div class="playlist-item active">
+                    <span>1. Summer Vibes</span>
+                    <span>3:45</span>
+                </div>
+                <div class="playlist-item">
+                    <span>2. Ocean Waves</span>
+                    <span>4:20</span>
+                </div>
+                <div class="playlist-item">
+                    <span>3. Night Drive</span>
+                    <span>3:55</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Section -->
+    <section id="sports" class="section">
+        <h2 class="section-title">Live Sports</h2>
+        <div class="sports-grid">
+            <div class="sport-card">
+                <div class="live-indicator">LIVE</div>
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80"
+                    alt="Football">
+                <div class="sport-info">
+                    <h3>Premier League</h3>
+                    <p>Team A vs Team B</p>
+                    <a href="https://www.foxsports.com/live" target="_blank"><button class="watch-btn">Watch Live</button></a>
+                </div>
+            </div>
+            <div class="sport-card">
+                <div class="live-indicator">LIVE</div>
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80"
+                    alt="Basketball">
+                <div class="sport-info">
+                    <h3>NBA Finals</h3>
+                    <p>Team X vs Team Y</p>
+                    <a href="https://abc.com/show/661bcffe-7e77-467c-a988-756f01c87b23" target="_blank"><button class="watch-btn">Watch Live</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live TV Section -->
+    <section id="live" class="section">
+        <h2 class="section-title">Live TV Channels</h2>
+        <div class="channels-grid">
+            <div class="channel-card">
+                <div class="channel-logo">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>Entertainment Plus</h3>
+                <p>24/7 Entertainment</p>
+                <button class="watch-btn">Watch Now</button>
+            </div>
+            <div class="channel-card">
+                <div class="channel-logo">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Movie Central</h3>
+                <p>Latest Movies</p>
+                <button class="watch-btn">Watch Now</button>
+            </div>
+            <div class="channel-card">
+                <div class="channel-logo">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>Music TV</h3>
+                <p>Top Charts</p>
+                <button class="watch-btn">Watch Now</button>
+            </div>
+        </div>
+    </section>
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-play-circle"></i>
+                        EntertainmentHub
+                    </div>
+                    <p>Your ultimate destination for movies, games, music, and more.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#movies" class="footer-link">Movies</a>
+                        <a href="#games" class="footer-link">Games</a>
+                        <a href="#music" class="footer-link">Music</a>
+                        <a href="#sports" class="footer-link">Sports</a>
+                        <a href="#live" class="footer-link">Live TV</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Help Center</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="mailto:support@entertainmenthub.com" class="footer-link">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EntertainmentHub. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

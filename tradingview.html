@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Chart Dashboard</title>
+    <link rel="stylesheet" href="trading.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">CryptoChart</div>
+            <div class="tabs">
+                <div class="tab active">Dashboard</div>
+                <div class="tab">Markets</div>
+                <div class="tab">Portfolio</div>
+                <div class="tab">News</div>
+            </div>
+        </div>
+        
+        <div class="market-info">
+            <div class="market-card">
+                <div class="title">BTC Price</div>
+                <div class="value" id="btc-price">$42,890.12</div>
+                <div class="change up">+2.34%</div>
+            </div>
+            <div class="market-card">
+                <div class="title">24h Volume</div>
+                <div class="value">$28.4B</div>
+                <div class="change up">+5.67%</div>
+            </div>
+            <div class="market-card">
+                <div class="title">ETH Price</div>
+                <div class="value" id="eth-price">$2,345.67</div>
+                <div class="change down">-1.23%</div>
+            </div>
+            <div class="market-card">
+                <div class="title">Market Cap</div>
+                <div class="value">$1.64T</div>
+                <div class="change up">+3.45%</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <div class="chart-header">
+                <div class="coin-info">
+                    <div class="coin-icon">B</div>
+                    <div class="coin-name">BTC/USDT</div>
+                    <div class="price up" id="current-price">$42,890.12</div>
+                    <div class="change up">+2.34%</div>
+                </div>
+                <div class="timeframes">
+                    <div class="timeframe">1H</div>
+                    <div class="timeframe">4H</div>
+                    <div class="timeframe active">1D</div>
+                    <div class="timeframe">1W</div>
+                    <div class="timeframe">1M</div>
+                </div>
+            </div>
+            <div class="chart">
+                <canvas id="priceChart"></canvas>
+            </div>
+            <div class="tools">
+                <div class="tool">Line</div>
+                <div class="tool">Candles</div>
+                <div class="tool">Indicators</div>
+                <div class="tool">Compare</div>
+                <div class="tool">Settings</div>
+            </div>
+        </div>
+        
+        <div class="crypto-list">
+            <div class="list-header">
+                <div>Coin</div>
+                <div>Price</div>
+                <div>24h Change</div>
+                <div>24h Volume</div>
+                <div>Market Cap</div>
+            </div>
+            <div class="list-item">
+                <div class="coin">
+                    <div class="coin-icon small">B</div>
+                    <div>Bitcoin</div>
+                </div>
+                <div>$42,890.12</div>
+                <div class="change up">+2.34%</div>
+                <div>$18.4B</div>
+                <div>$840.5B</div>
+            </div>
+            <div class="list-item">
+                <div class="coin">
+                    <div class="coin-icon small">E</div>
+                    <div>Ethereum</div>
+                </div>
+                <div>$2,345.67</div>
+                <div class="change down">-1.23%</div>
+                <div>$8.2B</div>
+                <div>$282.1B</div>
+            </div>
+            <div class="list-item">
+                <div class="coin">
+                    <div class="coin-icon small">S</div>
+                    <div>Solana</div>
+                </div>
+                <div>$102.45</div>
+                <div class="change up">+5.67%</div>
+                <div>$2.1B</div>
+                <div>$44.8B</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="trading.js">
+    </script>
+</body>
+</html>
